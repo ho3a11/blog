@@ -1,58 +1,58 @@
 Django Blog Project
 This is a Django-based blog project that allows users to create, view, edit, and delete blog posts. It includes features such as user authentication, pagination, and comment functionality.
 Installation
+Clone the repository:
 bash
 
-Copy
-
    https://github.com/ho3a11/blog.git
+   
 Navigate to the project directory:
 bash
 
-Copy
+
 
    cd blog
+   
 Create a virtual environment:
 bash
 
-Copy
+
 
    python3 -m venv venv
 Activate the virtual environment:
 For macOS/Linux:
 bash
 
-Copy
+
 
      source venv/bin/activate
 For Windows:
 bash
 
-Copy
+
 
      .\venv\Scripts\activate
 Install the project dependencies:
 bash
 
-Copy
 
    pip install -r requirements.txt
 Apply the database migrations:
 bash
 
-Copy
+
 
    python manage.py migrate
 Create a superuser (admin) account:
 bash
 
-Copy
+
 
    python manage.py createsuperuser
 Start the development server:
 bash
 
-Copy
+
 
    python manage.py runserver
 Open your web browser and navigate to http://localhost:8000 to access the blog.
