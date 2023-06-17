@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row tm-row tm-mb-120">
+    <div class="col-12">
+        <h2 class="tm-color-primary tm-post-title tm-mb-60">Contact Us</h2>
+    </div>
+    <div class="col-lg-7 tm-contact-left">
+        <form method="POST" action="" class="mb-5 ml-auto mr-0 tm-contact-form" enctype="multipart/form-data">  
+            {% csrf_token %} 
+            {% if form.instance.image %}
+           
+            <div class="row tm-row tm-mb-45">
+                <div class="col-8">
+                    <hr class="tm-hr-primary tm-mb-55">
+                    <label for="{{ form.image.id_for_label }}">Current image:</label>
+
+                    <img src="{{ form.instance.image.url }}" alt="{{ form.instance.title }}" class="img-fluid">
+                </div>
+            </div>
+            {% endif %}
+
+                            {{form.as_p}}
+    
+            {% if form.instance.pk %}
+            <div class="form-group row text-right">
+                <div class="col-12">
+                    <button class="tm-btn tm-btn-primary tm-btn-small">Update</button>                        
+                </div> 
+                {% else %}
+                <div class="form-group row text-right">
+                    <div class="col-12">
+                        <button class="tm-btn tm-btn-primary tm-btn-small">Create</button>                        
+                    </div> 
+                {% endif %}            
+ {% comment %} 
+ <div class="form-group row mb-4">
+                <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Name</label>
+                <div class="col-sm-9">
+                    <input class="form-control mr-0 ml-auto" name="title" id="name" type="text" required="">                            
+                </div>
+            </div>
+                 <label for="category">Choose a category:</label>
+
+             <select id="category" name="category" size="4" multiple>
+                {% for category  in categories  %}
+
+                <option value="{{category.id}}">{{category.name}}</option>
+                {% endfor %}
+             </select> 
+             
+             <label for="image">Upload an Image:</label>
+             <input type="file" name="image" id="image">
+  
+
+            <div class="form-group row mb-5">
+                <label for="message" class="col-sm-3 col-form-label text-right tm-color-primary">Message</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control mr-0 ml-auto" name="content" id="message" rows="8" required=""></textarea>                                
+                </div>
+            </div>
+            {% endcomment %}
+                      
+
+              
+            </div>                                
+        </form>
+    </div>
+   
+</div>
+
+{% endblock content %}

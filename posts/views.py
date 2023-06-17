@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect
-from .models import Post
-from .forms import PostForm
+from django.shortcuts import render, redirect,get_object_or_404
+from .models import Post , Category
+from .forms import PostForm , CategoryForm
 from django.core.paginator import Paginator
+from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 
 def contact_us(requset):
@@ -23,27 +25,43 @@ def post_detail(request, pk):
     post = Post.objects.get(pk=pk)
     return render(request, 'posts/post_detail.html', {'post': post})
 
+@login_required
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('posts:post_detail', pk=post.pk)
     else:
+        # categories = Category.objects.all()
+     
         form = PostForm()
-    return render(request, 'posts/post_edit.html', {'form': form})
+        
+    return render(request, 'posts/post_edit.html', {'form': form  })
 
+
+@login_required
 def post_edit(request, pk):
-    post = Post.objects.get(pk=pk)
-    if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('posts:post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
     return render(request, 'posts/post_edit.html', {'form': form})
+
+
+
+def search(request):
+    query = request.GET.get('query')
+    if query:
+        results = Post.objects.filter(Q(title__icontains=query) | Q(content__icontains=query))
+    else:
+        results = Post.objects.all()
+    return render(request, 'posts/post_list.html', {'posts': results})

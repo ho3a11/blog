@@ -11,6 +11,7 @@
         <img src="{{post.image.url}}" alt="Image" class="img-fluid">
     </div>
 </div>
+<a href="{% url 'posts:post_edit' pk=post.id %}"><button type="button" class="btn btn-primary">Edit</button> </a>
 
 <div class="row tm-row">
     <div class="col-lg-8 tm-post-col">
