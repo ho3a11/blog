@@ -1,7 +1,6 @@
 Django Blog Project
 This is a Django-based blog project that allows users to create, view, edit, and delete blog posts. It includes features such as user authentication, pagination, and comment functionality.
 Installation
-Clone the repository:
 bash
 
 Copy
@@ -18,20 +17,20 @@ bash
 
 Copy
 
-   python3 -m venv env
+   python3 -m venv venv
 Activate the virtual environment:
 For macOS/Linux:
 bash
 
 Copy
 
-     source env/bin/activate
+     source venv/bin/activate
 For Windows:
 bash
 
 Copy
 
-     .\env\Scripts\activate
+     .\venv\Scripts\activate
 Install the project dependencies:
 bash
 
