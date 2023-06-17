@@ -6,13 +6,13 @@ bash
 
 Copy
 
-   git clone https://github.com/your-username/django-blog.git
+   https://github.com/ho3a11/blog.git
 Navigate to the project directory:
 bash
 
 Copy
 
-   cd django-blog
+   cd blog
 Create a virtual environment:
 bash
 
@@ -57,6 +57,22 @@ Copy
 
    python manage.py runserver
 Open your web browser and navigate to http://localhost:8000 to access the blog.
+Docker
+Alternatively, you can use Docker to run the project in a containerized environment. Follow these steps:
+Install Docker on your machine by following the instructions in the official Docker documentation.
+Build the Docker image:
+bash
+
+Copy
+
+   docker build -t blog .
+Run the Docker container:
+bash
+
+Copy
+
+   docker-compose up
+Open your web browser and navigate to http://localhost:8000 to access the blog.
 Usage
 To create a new blog post, click on the "New Post" button on the homepage and fill in the required details.
 To view a blog post, click on its title on the homepage or in the post list.
@@ -70,6 +86,5 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 License
 This project is licensed under the MIT License.
 Acknowledgements
-This project was inspired by the Django Girls tutorial.
 The project uses the Django framework and various Django packages for its functionality.
 Feel free to customize this README file based on your specific project requirements and add any additional sections or information that you find relevant.
