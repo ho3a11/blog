@@ -41,22 +41,26 @@ bash
 
      python manage.py runserver
 Open your web browser and navigate to http://localhost:8000 to access the blog.
+
 Docker
+
 Alternatively, you can use Docker to run the project in a containerized environment. Follow these steps:
+
 Install Docker on your machine by following the instructions in the official Docker documentation.
+
 Build the Docker image:
+
 bash
 
-Copy
-
-   docker build -t blog .
+     docker build -t blog .
 Run the Docker container:
 bash
 
-Copy
 
-   docker-compose up
+     docker-compose up
+     
 Open your web browser and navigate to http://localhost:8000 to access the blog.
+
 Usage
 To create a new blog post, click on the "New Post" button on the homepage and fill in the required details.
 To view a blog post, click on its title on the homepage or in the post list.
