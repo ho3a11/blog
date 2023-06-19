@@ -8,7 +8,7 @@
     
     <article class="col-12 col-md-6 tm-post">
         <hr class="tm-hr-primary">
-        <a href="{% url 'posts:post_detail' pk=post.id %}" class="effect-lily tm-post-link tm-pt-60">
+        <a href="{% url 'posts:post_detail' slug=post.slug %}" class="effect-lily tm-post-link tm-pt-60">
             <div class="tm-post-link-inner">
                 <img src="{{post.image.url}}" alt="Image" class="img-fluid">                            
             </div>

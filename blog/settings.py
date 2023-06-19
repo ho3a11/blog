@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.humanize',  #use humanize tags in templates
     'django.contrib.staticfiles',
+    'taggit',
     'posts',
 ]
 
